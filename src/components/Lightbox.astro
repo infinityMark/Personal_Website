@@ -1,0 +1,97 @@
+<!-- Lightbox overlay, initially hidden -->
+<div id="lightbox" class="fixed inset-0 z-[100] bg-charcoal/95 hidden flex-col items-center justify-center">
+  <!-- Close button -->
+  <button
+    id="lightbox-close"
+    class="absolute top-6 right-6 text-white/70 hover:text-white text-sm tracking-wide uppercase transition-colors"
+    aria-label="Close"
+  >
+    Close
+  </button>
+
+  <!-- Previous -->
+  <button
+    id="lightbox-prev"
+    class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-3xl transition-colors p-2"
+    aria-label="Previous"
+  >
+    &larr;
+  </button>
+
+  <!-- Image -->
+  <div class="max-w-[90vw] max-h-[80vh] flex items-center justify-center">
+    <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[80vh] object-contain rounded-sm" />
+  </div>
+
+  <!-- Caption -->
+  <p id="lightbox-caption" class="text-white/60 text-sm mt-4 text-center px-4"></p>
+
+  <!-- Next -->
+  <button
+    id="lightbox-next"
+    class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-white/60 hover:text-white text-3xl transition-colors p-2"
+    aria-label="Next"
+  >
+    &rarr;
+  </button>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const img = document.getElementById('lightbox-img') as HTMLImageElement;
+  const caption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('lightbox-close');
+  const prevBtn = document.getElementById('lightbox-prev');
+  const nextBtn = document.getElementById('lightbox-next');
+
+  const photos = Array.from(document.querySelectorAll('.photo-card')).map((card) => ({
+    src: card.getAttribute('data-src') ?? '',
+    title: card.getAttribute('data-title') ?? '',
+  }));
+
+  let currentIndex = 0;
+
+  function show(index: number) {
+    currentIndex = ((index % photos.length) + photos.length) % photos.length;
+    const photo = photos[currentIndex];
+    if (img) img.src = photo.src;
+    if (img) img.alt = photo.title;
+    if (caption) caption.textContent = photo.title;
+    lightbox?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function close() {
+    lightbox?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.photo-card').forEach((card) => {
+    card.addEventListener('click', () => {
+      const idx = parseInt(card.getAttribute('data-index') ?? '0');
+      show(idx);
+    });
+  });
+
+  closeBtn?.addEventListener('click', close);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) close();
+  });
+
+  prevBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    show(currentIndex - 1);
+  });
+
+  nextBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    show(currentIndex + 1);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (lightbox?.classList.contains('hidden')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(currentIndex - 1);
+    if (e.key === 'ArrowRight') show(currentIndex + 1);
+  });
+</script>

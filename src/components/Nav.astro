@@ -1,0 +1,76 @@
+---
+const { currentPath } = Astro.props;
+
+const links = [
+  { href: '/', label: 'Home' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/photography', label: 'Photography' },
+  { href: '/about', label: 'About' },
+];
+---
+
+<nav class="sticky top-0 z-50 bg-cream/80 backdrop-blur-sm border-b border-charcoal/5">
+  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="/" class="font-display text-xl text-charcoal hover:text-charcoal/70 transition-colors">
+      Mark
+    </a>
+
+    <!-- Desktop links -->
+    <div class="hidden md:flex items-center gap-8">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class={`nav-link ${currentPath === link.href ? 'active' : ''}`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+      aria-label="Toggle menu"
+    >
+      <span class="block w-5 h-px bg-charcoal transition-transform duration-200" />
+      <span class="block w-5 h-px bg-charcoal transition-opacity duration-200" />
+      <span class="block w-5 h-px bg-charcoal transition-transform duration-200" />
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-charcoal/5 bg-cream">
+    <div class="px-6 py-4 flex flex-col gap-4">
+      {links.map((link) => (
+        <a
+          href={link.href}
+          class={`text-sm tracking-wide uppercase ${currentPath === link.href ? 'text-charcoal font-medium' : 'text-charcoal/60'}`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const spans = toggle?.querySelectorAll('span');
+
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden');
+    if (spans) {
+      if (!open) {
+        spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
+      } else {
+        spans[0].style.transform = '';
+        spans[1].style.opacity = '';
+        spans[2].style.transform = '';
+      }
+    }
+  });
+</script>

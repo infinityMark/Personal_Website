@@ -1,0 +1,38 @@
+[
+  {
+    "filename": "photo-01.jpg",
+    "title": "Mountain Silence",
+    "alt": "Snow-capped mountain peaks reflected in a still alpine lake at dawn",
+    "category": "landscape"
+  },
+  {
+    "filename": "photo-02.jpg",
+    "title": "Urban Geometry",
+    "alt": "Looking up at modern glass skyscrapers forming geometric patterns against the sky",
+    "category": "urban"
+  },
+  {
+    "filename": "photo-03.jpg",
+    "title": "Golden Hour Portrait",
+    "alt": "A warm backlit portrait taken during the last hour of sunlight",
+    "category": "portrait"
+  },
+  {
+    "filename": "photo-04.jpg",
+    "title": "Morning Mist",
+    "alt": "Trees emerging from morning fog in a quiet forest",
+    "category": "landscape"
+  },
+  {
+    "filename": "photo-05.jpg",
+    "title": "Street Corner",
+    "alt": "A candid moment at a busy street intersection during blue hour",
+    "category": "urban"
+  },
+  {
+    "filename": "photo-06.jpg",
+    "title": "Coastal Light",
+    "alt": "Waves crashing against rocks as the sun breaks through clouds",
+    "category": "landscape"
+  }
+]

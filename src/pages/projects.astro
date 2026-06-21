@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import projects from '../data/projects.json';
+import '../styles/global.css';
+---
+
+<Layout>
+  <section class="max-w-5xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
+    <h1 class="section-title fade-up">Projects</h1>
+    <p class="mt-3 text-charcoal/60 max-w-lg fade-up">
+      Things I've built. Each one taught me something new.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 pb-24 md:pb-32">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => (
+        <ProjectCard
+          name={project.name}
+          description={project.description}
+          tags={project.tags}
+          github={project.github}
+          live={project.live}
+          image={project.image}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>

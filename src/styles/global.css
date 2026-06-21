@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream text-charcoal font-body;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+}
+
+@layer components {
+  .nav-link {
+    @apply text-sm tracking-wide uppercase text-charcoal/70 hover:text-charcoal transition-colors duration-200;
+  }
+
+  .nav-link.active {
+    @apply text-charcoal;
+  }
+
+  .section-title {
+    @apply font-display text-3xl md:text-4xl text-charcoal;
+  }
+
+  .card {
+    @apply bg-white/60 rounded-lg border border-charcoal/10 p-6 transition-all duration-300 hover:shadow-md;
+  }
+
+  .pill {
+    @apply inline-block px-3 py-1 text-xs rounded-full border border-charcoal/20 text-charcoal/70;
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

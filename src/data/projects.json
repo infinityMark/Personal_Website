@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Personal Website",
+    "description": "An elegant personal site built with Astro and Tailwind CSS, showcasing projects and photography.",
+    "tags": ["Astro", "Tailwind CSS", "JavaScript"],
+    "github": "https://github.com/infinityMark/Personal_Website",
+    "live": "",
+    "image": ""
+  },
+  {
+    "name": "Program Project Platform",
+    "description": "A platform for managing and sharing programming projects with team collaboration features.",
+    "tags": ["TypeScript", "React", "Node.js", "PostgreSQL"],
+    "github": "https://github.com/infinityMark/program-project",
+    "live": "",
+    "image": ""
+  },
+  {
+    "name": "Photo Portfolio API",
+    "description": "RESTful API for managing photography portfolios with tagging, albums, and CDN integration.",
+    "tags": ["Python", "FastAPI", "AWS S3"],
+    "github": "https://github.com/infinityMark/photo-api",
+    "live": "",
+    "image": ""
+  }
+]

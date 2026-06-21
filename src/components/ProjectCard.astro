@@ -1,0 +1,42 @@
+---
+export interface Props {
+  name: string;
+  description: string;
+  tags: string[];
+  github?: string;
+  live?: string;
+  image?: string;
+}
+
+const { name, description, tags, github, live, image } = Astro.props;
+---
+
+<div class="card fade-up group">
+  {image && (
+    <img
+      src={`/images/projects/${image}`}
+      alt={name}
+      class="w-full h-40 object-cover rounded-md mb-4"
+      loading="lazy"
+    />
+  )}
+  <h3 class="font-display text-lg text-charcoal mb-1">{name}</h3>
+  <p class="text-sm text-charcoal/60 leading-relaxed mb-3">{description}</p>
+  <div class="flex flex-wrap gap-2 mb-4">
+    {tags.map((tag) => <span class="pill">{tag}</span>)}
+  </div>
+  <div class="flex gap-3 text-sm">
+    {github && (
+      <a href={github} target="_blank" rel="noopener noreferrer"
+         class="text-accent hover:text-accent/70 transition-colors">
+        GitHub &rarr;
+      </a>
+    )}
+    {live && (
+      <a href={live} target="_blank" rel="noopener noreferrer"
+         class="text-accent hover:text-accent/70 transition-colors">
+        Live &rarr;
+      </a>
+    )}
+  </div>
+</div>

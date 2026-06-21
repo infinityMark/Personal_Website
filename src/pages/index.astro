@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
+---
+
+<Layout>
+  <section class="max-w-3xl mx-auto px-6 pt-24 pb-16 md:pt-32 md:pb-24">
+    <h1 class="font-display text-4xl md:text-5xl lg:text-6xl text-charcoal leading-tight fade-up">
+      Hi, I'm Mark &mdash;<br />a software engineer who <span class="italic">sees</span> things.
+    </h1>
+    <p class="mt-6 text-lg md:text-xl text-charcoal/60 leading-relaxed max-w-xl fade-up">
+      I build thoughtful software and capture moments through my lens.
+      This is where my work and curiosity live.
+    </p>
+  </section>
+
+  <section class="max-w-5xl mx-auto px-6 pb-24 md:pb-32">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Projects card -->
+      <a href="/projects" class="card fade-up group cursor-pointer no-underline">
+        <div class="text-3xl mb-4 font-display text-charcoal">Projects</div>
+        <p class="text-sm text-charcoal/60 leading-relaxed mb-3">
+          Software I've built — platforms, APIs, tools. Compact and to the point.
+        </p>
+        <span class="text-sm text-accent group-hover:translate-x-1 inline-block transition-transform">
+          Browse projects &rarr;
+        </span>
+      </a>
+
+      <!-- Photography card -->
+      <a href="/photography" class="card fade-up group cursor-pointer no-underline">
+        <div class="text-3xl mb-4 font-display text-charcoal">Photography</div>
+        <p class="text-sm text-charcoal/60 leading-relaxed mb-3">
+          Moments I've captured — landscapes, streets, and faces. A quieter side of me.
+        </p>
+        <span class="text-sm text-accent-warm group-hover:translate-x-1 inline-block transition-transform">
+          View gallery &rarr;
+        </span>
+      </a>
+
+      <!-- About card -->
+      <a href="/about" class="card fade-up group cursor-pointer no-underline">
+        <div class="text-3xl mb-4 font-display text-charcoal">About Me</div>
+        <p class="text-sm text-charcoal/60 leading-relaxed mb-3">
+          Who I am, what I work with, and what drives me. The full picture.
+        </p>
+        <span class="text-sm text-accent group-hover:translate-x-1 inline-block transition-transform">
+          Learn more &rarr;
+        </span>
+      </a>
+    </div>
+  </section>
+</Layout>

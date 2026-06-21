@@ -1,0 +1,31 @@
+---
+export interface Props {
+  filename: string;
+  title: string;
+  alt: string;
+  index: number;
+}
+
+const { filename, title, alt, index } = Astro.props;
+const src = `/images/photography/${filename}`;
+---
+
+<button
+  class="photo-card fade-up block w-full overflow-hidden rounded-lg bg-charcoal/5 cursor-pointer group"
+  data-index={String(index)}
+  data-src={src}
+  data-title={title}
+  aria-label={`View ${title}`}
+>
+  <img
+    src={src}
+    alt={alt}
+    loading="lazy"
+    class="w-full h-full object-cover aspect-[4/3] transition-transform duration-500 group-hover:scale-105"
+  />
+  <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/10 transition-colors duration-300 flex items-end">
+    <span class="text-white text-sm px-3 py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      {title}
+    </span>
+  </div>
+</button>

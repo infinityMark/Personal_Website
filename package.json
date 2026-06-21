@@ -1,0 +1,31 @@
+{
+  "name": "personal_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/infinityMark/Personal_Website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/infinityMark/Personal_Website/issues"
+  },
+  "homepage": "https://github.com/infinityMark/Personal_Website#readme",
+  "dependencies": {
+    "@astrojs/tailwind": "^6.0.2",
+    "astro": "^6.4.8",
+    "tailwindcss": "^3.4.19"
+  }
+}

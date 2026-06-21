@@ -1,0 +1,11 @@
+---
+export interface Props {
+  label: string;
+}
+
+const { label } = Astro.props;
+---
+
+<span class="pill bg-charcoal/5 border-charcoal/15 text-charcoal/80">
+  {label}
+</span>
